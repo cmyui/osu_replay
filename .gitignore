@@ -1,3 +1,8 @@
-__pycache__/
-.vscode/
-**/*.osr
+*.egg-info
+*.py[co]
+/.mypy_cache
+/.pytest_cache
+/.vscode
+/venv*
+dist
+*.osr
