@@ -3,7 +3,7 @@ import lzma
 import struct
 from typing import Optional
 
-import binary
+from osu_replay import binary
 
 # References
 # 1. https://osu.ppy.sh/wiki/en/Client/File_formats/Osr_%28file_format%29
