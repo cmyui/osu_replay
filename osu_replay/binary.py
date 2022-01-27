@@ -1,7 +1,15 @@
+"""A package for reading & writing binary data in osu! replays."""
+
 import struct
+
+## Reading of binary data
 
 
 class BinaryReader:
+    """A wrapper around a memoryview to parse binary data from it."""
+
+    __slots__ = ("data_view",)
+
     def __init__(self, data_view: memoryview) -> None:
         self.data_view = data_view
 
@@ -91,7 +99,9 @@ class BinaryReader:
         return val
 
 
-# write functions
+## Writing of binary data
+
+
 def write_uleb128(num: int) -> bytes:
     if num == 0:
         return b"\x00"
@@ -110,10 +120,8 @@ def write_uleb128(num: int) -> bytes:
 
 
 def write_string(string: str) -> bytes:
-    if string:
-        bytestring = string.encode()
-        val = b"\x0b" + write_uleb128(len(bytestring)) + bytestring
-    else:
-        val = b"\x00"
+    if not string:
+        return b"\x00"
 
-    return val
+    encoded_string = string.encode()
+    return b"\x0b" + write_uleb128(len(encoded_string)) + encoded_string

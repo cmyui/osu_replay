@@ -1,5 +1,4 @@
-"""A simple module for management of osu! replay files in modern python.
-"""
+"""A python distribution for management of osu! replay files in modern python."""
 
 __author__ = "Joshua Smith (cmyui)"
 __email__ = "cmyuiosu@gmail.com"
